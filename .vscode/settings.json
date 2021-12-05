@@ -7,6 +7,10 @@
         "glad.h": "c",
         "iostream": "cpp",
         "string": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "functional": "cpp",
+        "memory": "cpp",
+        "optional": "cpp",
+        "sstream": "cpp"
     }
 }

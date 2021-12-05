@@ -15,7 +15,7 @@ int main(int argc, char *const argv[])
       if (strcmp(optarg, "triangle") == 0)
       {
         std::cout << "Running triangle" << std::endl;
-        runTriangle();
+        Triangle().initialize().run();
       }
       break;
     case -1:

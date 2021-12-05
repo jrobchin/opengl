@@ -6,6 +6,13 @@
 #include <GLFW/glfw3.h>
 
 #include <utils.hpp>
+#include <exercise.hpp>
 
-int runTriangle();
+class Triangle : public Exercise
+{
+public:
+    Triangle();
+    void run() override;
+};
+
 #endif // __TRIANGLE_H__
