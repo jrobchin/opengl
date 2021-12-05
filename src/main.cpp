@@ -5,13 +5,13 @@
 #include <getopt.h>
 
 #include <utils.hpp>
-#include <exercises/exercise.hpp>
-#include <exercises/triangle.hpp>
+#include <exercises/all.hpp>
 
 int main(int argc, char *const argv[])
 {
   std::map<std::string, Exercise *> m{
-      {"triangle", new Triangle()}};
+      {"triangle", new Triangle()},
+      {"square", new Square()}};
 
   Exercise *exercise;
 

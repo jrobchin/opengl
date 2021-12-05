@@ -4,11 +4,11 @@ Triangle::Triangle() : Exercise{"Triangle"}
 {
 }
 
-void Triangle::run()
+Triangle &Triangle::run()
 {
     // Setup viewpoint
     // TODO: make resizable
-    glViewport(0, 0, 800, 600);
+    glViewport(0, 0, w_width, w_height);
 
     // Create vertex data for traingle
     float verticies[] = {-0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, 0.5f, 0.0f};
@@ -44,6 +44,7 @@ void Triangle::run()
         glUseProgram(basicShaderProgram);
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
+        glBindVertexArray(0);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -54,4 +55,6 @@ void Triangle::run()
     glDeleteProgram(basicShaderProgram);
 
     glfwTerminate();
+
+    return *this;
 }

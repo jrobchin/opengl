@@ -6,13 +6,13 @@
 #include <GLFW/glfw3.h>
 
 #include <utils.hpp>
-#include <exercise.hpp>
+#include <exercises/exercise.hpp>
 
 class Square : public Exercise
 {
 public:
     Square();
-    void run() override;
-}
+    Square &run() override;
+};
 
 #endif // __SQUARE_H__

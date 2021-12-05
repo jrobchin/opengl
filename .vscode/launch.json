@@ -8,7 +8,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${workspaceFolder}/build/learnopengl",
-        "args": ["-ptriangle"],
+        "args": ["-psquare"],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}/build",
         "environment": [],

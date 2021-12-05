@@ -12,7 +12,7 @@ class Triangle : public Exercise
 {
 public:
     Triangle();
-    void run() override;
+    Triangle &run() override;
 };
 
 #endif // __TRIANGLE_H__

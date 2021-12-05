@@ -20,13 +20,14 @@ private:
     const char *FRAGMENT_SHADER_PATH = "./shaders/basic.frag";
 
     const char *name;
-    int w_width, w_height;
 
     void initlializeGLFW();
     GLFWwindow *createWindow();
     void initializeGLAD();
 
 protected:
+    int w_width, w_height;
+
     GLFWwindow *window;
     GLuint basicShaderProgram;
 
@@ -36,7 +37,8 @@ public:
     Exercise(const char *name, int w_width, int w_height);
     Exercise(const char *name);
     Exercise &initialize();
-    virtual void run() = 0;
+    Exercise &cleanup();
+    virtual Exercise &run() = 0;
 };
 
 #endif // __EXERCISE_H__

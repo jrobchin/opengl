@@ -19,7 +19,7 @@ void Exercise::initlializeGLFW()
 GLFWwindow *Exercise::createWindow()
 {
     // Create window
-    GLFWwindow *window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(800, 600, name, NULL, NULL);
     if (window == NULL)
     {
         glfwTerminate();
@@ -92,11 +92,20 @@ void Exercise::initializeGLAD()
 
 Exercise &Exercise::initialize()
 {
+    std::cout << "Initializing " << name << std::endl;
+
     initlializeGLFW();
     window = createWindow();
     glfwMakeContextCurrent(window);
     initializeGLAD();
     basicShaderProgram = createBasicShaderProgram();
+
+    return *this;
+}
+
+Exercise &Exercise::cleanup()
+{
+    glDeleteProgram(basicShaderProgram);
 
     return *this;
 }
