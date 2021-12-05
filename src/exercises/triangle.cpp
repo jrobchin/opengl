@@ -1,4 +1,4 @@
-#include <triangle.hpp>
+#include <exercises/triangle.hpp>
 
 Triangle::Triangle() : Exercise{"Triangle"}
 {

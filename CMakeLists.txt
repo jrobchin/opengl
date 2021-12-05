@@ -13,8 +13,9 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(SOURCE_FILES 
     src/main.cpp
     src/utils.cpp
-    src/exercise.cpp
-    src/triangle.cpp
+    src/exercises/exercise.cpp
+    src/exercises/triangle.cpp
+    src/exercises/square.cpp
 )
 
 find_package(OpenGL REQUIRED)

@@ -5,8 +5,8 @@
 #include <getopt.h>
 
 #include <utils.hpp>
-#include <exercise.hpp>
-#include <triangle.hpp>
+#include <exercises/exercise.hpp>
+#include <exercises/triangle.hpp>
 
 int main(int argc, char *const argv[])
 {

@@ -1,5 +1,5 @@
-#ifndef __TRIANGLE_H__
-#define __TRIANGLE_H__
+#ifndef __SQUARE_H__
+#define __SQUARE_H__
 
 #include <iostream>
 #include <glad/glad.h>
@@ -8,11 +8,11 @@
 #include <utils.hpp>
 #include <exercise.hpp>
 
-class Triangle : public Exercise
+class Square : public Exercise
 {
 public:
-    Triangle();
+    Square();
     void run() override;
-};
+}
 
-#endif // __TRIANGLE_H__
+#endif // __SQUARE_H__

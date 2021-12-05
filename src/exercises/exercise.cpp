@@ -1,4 +1,4 @@
-#include <exercise.hpp>
+#include <exercises/exercise.hpp>
 
 Exercise::Exercise(const char *name, int w_width, int w_height)
     : name{name}, w_width{w_width}, w_height{w_height}
