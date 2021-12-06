@@ -106,6 +106,7 @@ Exercise &Exercise::initialize()
 Exercise &Exercise::cleanup()
 {
     glDeleteProgram(basicShaderProgram);
+    glfwTerminate();
 
     return *this;
 }
