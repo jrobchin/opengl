@@ -1,29 +1,38 @@
 #include <exercises/square.hpp>
 
-Square::Square() : Exercise{"Square"} {}
+Square::Square() : Exercise{"Square"}, pos{0.0f, 0.0f, 0.0f} {}
 
-Square &Square::run()
+void Square::processInput()
 {
-    glViewport(0, 0, w_width, w_height);
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
 
-    // Define a set of vertices for which to index
+    const float speed = 0.0001f;
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+        pos.y += speed;
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+        pos.y -= speed;
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+        pos.x += speed;
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+        pos.x -= speed;
+}
+
+void Square::update()
+{
+    // Define vertices
+    // This is a horrible way to translate
     float vertices[] = {
-        -0.5f, 0.5f, 0.0f,  // top left
-        -0.5f, -0.5f, 0.0f, // bottom left
-        0.5f, 0.5f, 0.0f,   // top right
-        0.5f, -0.5f, 0.0f   // bottom right
+        -dims + pos.x, dims + pos.y, 0.0f + pos.z,  // top left
+        -dims + pos.x, -dims + pos.y, 0.0f + pos.z, // bottom left
+        dims + pos.x, dims + pos.y, 0.0f + pos.z,   // top right
+        dims + pos.x, -dims + pos.y, 0.0f + pos.z   // bottom right
     };
 
-    // // Define indices for the square
+    // Define indices for the squares
     uint indices[] = {
         0, 2, 1,
-        1, 3, 2};
-
-    // Allocate objects
-    GLuint VBO, VAO, EBO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
+        2, 3, 1};
 
     // Bind VAO
     glBindVertexArray(VAO);
@@ -45,9 +54,21 @@ Square &Square::run()
 
     // Unbind VAO
     glBindVertexArray(0);
+}
+
+Square &Square::run()
+{
+    glViewport(0, 0, w_width, w_height);
+
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+    glGenBuffers(1, &EBO);
 
     while (!glfwWindowShouldClose(window))
     {
+        processInput();
+
+        update();
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 

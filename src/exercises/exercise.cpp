@@ -19,7 +19,7 @@ void Exercise::initlializeGLFW()
 GLFWwindow *Exercise::createWindow()
 {
     // Create window
-    GLFWwindow *window = glfwCreateWindow(800, 600, name, NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(w_width, w_height, name, NULL, NULL);
     if (window == NULL)
     {
         glfwTerminate();
